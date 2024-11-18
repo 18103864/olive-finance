@@ -76,45 +76,49 @@ export default function OptionsCard(){
                         </div>
                         <div className="space-y-0">
                             <Label className="font-medium">You&apos;re Selling</Label>
-                            <div className="flex space-x-2">
-                            <Select value={formValues.selling.currency} onValueChange={(value) => setFormValues(prev => ({ ...prev, selling: { ...prev.selling, currency: value } }))}>
-                                    <SelectTrigger className="w-[120px] h-[40px]">
-                                    <div className="flex items-center space-x-2">
-                                        <Image src={btc} alt="bitcoin" height={24} width={24}/>
-                                        <SelectValue placeholder="Select"/>
-                                    </div>
-                                    </SelectTrigger>
-                                    <SelectContent>
-                                        <SelectItem value="btc">BTC</SelectItem>
-                                        <SelectItem value="eth">ETH</SelectItem>
-                                        <SelectItem value="sol">SOL</SelectItem>
-                                    </SelectContent>
-                                </Select>
+                            <div className="flex relative">
+                                <div className="absolute left-2 top-1/2 transform -translate-y-1/2 z-20">
+                                    <Select value={formValues.selling.currency} onValueChange={(value) => setFormValues(prev => ({ ...prev, selling: { ...prev.selling, currency: value } }))}>
+                                        <SelectTrigger className="w-[150px] h-[40px]">
+                                        <div className="flex items-center space-x-2">
+                                            <Image src={btc} alt="bitcoin" height={24} width={24}/>
+                                            <SelectValue placeholder="Select"/>
+                                        </div>
+                                        </SelectTrigger>
+                                        <SelectContent>
+                                            <SelectItem value="btc" >BTC</SelectItem>
+                                            <SelectItem value="eth">ETH</SelectItem>
+                                            <SelectItem value="sol">SOL</SelectItem>
+                                        </SelectContent>
+                                    </Select>
+                                </div>
                                 <Input
                                     type="number"
                                     placeholder="0.00"
                                     value={formValues.selling.amount}
                                     onChange={(e) => setFormValues(prev => ({ ...prev, selling: { ...prev.selling, amount: e.target.value } }))}
-                                    className="flex-1 h-[40px]"
+                                    className="flex-1 w-full h-[56px] text-right"
                                 />
                             </div>
                         </div>
                         <div className="space-y-0">
                             <Label className="font-medium">You&apos;re Buying</Label>
-                            <div className="flex space-x-2">
-                                <Select value={formValues.buying.type} onValueChange={(value) => setFormValues(prev => ({ ...prev, buying: { ...prev.buying, type: value } }))}>
-                                    <SelectTrigger className="w-[120px] h-[40px]">
-                                    <SelectValue placeholder="Select" />
-                                    </SelectTrigger>
-                                    <SelectContent>
-                                    <SelectItem value="call">Call</SelectItem>
-                                    <SelectItem value="put">Put</SelectItem>
-                                    </SelectContent>
-                                </Select>
+                            <div className="flex relative">
+                                <div className="absolute left-2 top-1/2 transform -translate-y-1/2 z-20">
+                                    <Select value={formValues.buying.type} onValueChange={(value) => setFormValues(prev => ({ ...prev, buying: { ...prev.buying, type: value } }))}>
+                                        <SelectTrigger className="w-[150px] h-[40px]">
+                                        <SelectValue placeholder="Select" />
+                                        </SelectTrigger>
+                                        <SelectContent>
+                                        <SelectItem value="call">Call</SelectItem>
+                                        <SelectItem value="put">Put</SelectItem>
+                                        </SelectContent>
+                                    </Select>
+                                </div>
                                 <Input
                                     type="number"
                                     placeholder="0.00"
-                                    className="flex-1 h-[40px]"
+                                    className="flex-1 w-full h-[56px] text-right"
                                     value={formValues.buying.amount}
                                     onChange={(e) => setFormValues(prev => ({ ...prev, buying: { ...prev.buying, amount: e.target.value } }))}
                                 />
@@ -126,7 +130,7 @@ export default function OptionsCard(){
                                 <PopoverTrigger asChild>
                                     <Button 
                                         variant={'calendar'}
-                                        className={cn("w-full justify-between text-left font-normal h-[40px]",
+                                        className={cn("w-full justify-between text-left font-normal h-[56px] p-2",
                                             !formValues.expiryDate && "text-muted-foreground"
                                         )}
                                     >
@@ -153,12 +157,12 @@ export default function OptionsCard(){
                                 placeholder="Enter Strike Price"
                                 value={formValues.strikePrice}
                                 onChange={(e) => setFormValues(prev => ({ ...prev, strikePrice: e.target.value }))}
-                                className="h-[40px]"
+                                className="h-[56px] p-2"
                             />
                         </div>
                     </div>
                 </CardContent>
-                <div className="w-full flex justify-center items-center h-[40px] px-[24px]">
+                <div className="w-full flex justify-center items-center h-[56px] px-[24px]">
                     <Button variant={'selected'} className="w-full flex ">
                         Connect Wallet to Trade
                     </Button>
