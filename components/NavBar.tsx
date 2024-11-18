@@ -7,10 +7,12 @@ import { Switch } from "./ui/switch";
 import { useState } from "react";
 import { cn } from "@/lib/utils";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "./ui/dropdown-menu";
+import WalletModal from "./WalletModal";
 
 export default function NavBar(){
     const [active, setActive] = useState<string>("Options");
     const [isDark, setIsDark] = useState(false);
+    const [isWalletModalOpen, setIsWalletModalOpen] = useState(false)
 
     const toggleTheme = () => {
         setIsDark(!isDark)
@@ -88,9 +90,13 @@ export default function NavBar(){
                             />
                             {isDark ? <Moon className="h-[24px] w-[24px]" /> : <Sun className="h-[24px] w-[24px]" />}
                         </div>
-                        <Button variant='selected'>
+                        <Button variant='selected' onClick={() => setIsWalletModalOpen(true)}>
                             Connect Wallet
                         </Button>
+                        <WalletModal 
+                        isOpen={isWalletModalOpen} 
+                        onClose={() => setIsWalletModalOpen(false)}
+                    />
                     </div>
                 </div>
             </header>

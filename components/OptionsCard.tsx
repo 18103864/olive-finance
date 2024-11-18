@@ -16,9 +16,11 @@ import { Button } from "./ui/button";
 import { format } from "date-fns";
 import { CalendarIcon } from "lucide-react";
 import { Calendar } from "./ui/calendar";
+import WalletModal from "./WalletModal";
 
 
 export default function OptionsCard(){
+    const [isWalletModalOpen, setIsWalletModalOpen] = useState(false)
     const [position, setPosition] = useState<string>("long");
     const [date, setDate] = useState<Date>();
     const [formValues, setFormValues] = useState<{
@@ -163,9 +165,13 @@ export default function OptionsCard(){
                     </div>
                 </CardContent>
                 <div className="w-full flex justify-center items-center h-[56px] px-[24px]">
-                    <Button variant={'selected'} className="w-full flex ">
+                    <Button variant={'selected'} className="w-full flex " onClick={() => setIsWalletModalOpen(true)}>
                         Connect Wallet to Trade
                     </Button>
+                    <WalletModal 
+                        isOpen={isWalletModalOpen} 
+                        onClose={() => setIsWalletModalOpen(false)}
+                    />
                 </div>
             </Card>
         </>

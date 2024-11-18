@@ -3,6 +3,7 @@ import NavBar from "@/components/NavBar";
 import OptionsCard from "@/components/OptionsCard";
 
 
+
 export default function Home() {
   return (
     <div className="p-[40px] space-y-6">
