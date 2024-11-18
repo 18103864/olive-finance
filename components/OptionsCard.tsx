@@ -35,14 +35,14 @@ export default function OptionsCard(){
  
     return (
         <>
-            <Card className="w-[600px] h-[800px] mx-auto flex flex-col p-[40px]">
-                <CardContent className="p-6 space-y-6 flex-grow overflow-auto">
+            <Card className="w-full max-w-xl mx-auto flex flex-col py-[40px] px-[16px]">
+                <CardContent className="space-y-6 flex-grow overflow-auto">
                     <Tabs 
                         defaultValue="long"
                         className="w-full"
                         onValueChange={(value)=>setPosition(value)}
                     >
-                        <TabsList className="grid w-full h-[56px] grid-cols-2 bg-[#F5F0F8] text-[#9B7EBD]">
+                        <TabsList className="grid w-full h-[56px] grid-cols-2 bg-[#F5F0F8] text-[#9B7EBD] p-2">
                             <TabsTrigger value="long" 
                                 className={cn("data-[state=active]:bg-gradient-to-r data-[state=active]:from-[#3B1E54] data-[state=active]:to-[#9B7EBD] data-[state=active]:text-[#FDFDFD] h-[40px]")}>
                                 Long
@@ -54,7 +54,7 @@ export default function OptionsCard(){
                         </TabsList>
                     </Tabs>
 
-                    <div className="space-y-4">
+                    <div className="space-y-6">
                         <div className="flex justify-end mb-1">
                             <Button 
                                 type="button" 
@@ -74,11 +74,11 @@ export default function OptionsCard(){
                                 <span className="sr-only">Reset</span>
                             </Button>
                         </div>
-                        <div className="space-y-2">
+                        <div className="space-y-0">
                             <Label className="font-medium">You&apos;re Selling</Label>
                             <div className="flex space-x-2">
                             <Select value={formValues.selling.currency} onValueChange={(value) => setFormValues(prev => ({ ...prev, selling: { ...prev.selling, currency: value } }))}>
-                                    <SelectTrigger className="w-[120px]">
+                                    <SelectTrigger className="w-[120px] h-[40px]">
                                     <div className="flex items-center space-x-2">
                                         <Image src={btc} alt="bitcoin" height={24} width={24}/>
                                         <SelectValue placeholder="Select"/>
@@ -95,15 +95,15 @@ export default function OptionsCard(){
                                     placeholder="0.00"
                                     value={formValues.selling.amount}
                                     onChange={(e) => setFormValues(prev => ({ ...prev, selling: { ...prev.selling, amount: e.target.value } }))}
-                                    className="flex-1"
+                                    className="flex-1 h-[40px]"
                                 />
                             </div>
                         </div>
-                        <div className="space-y-2">
+                        <div className="space-y-0">
                             <Label className="font-medium">You&apos;re Buying</Label>
                             <div className="flex space-x-2">
                                 <Select value={formValues.buying.type} onValueChange={(value) => setFormValues(prev => ({ ...prev, buying: { ...prev.buying, type: value } }))}>
-                                    <SelectTrigger className="w-[120px]">
+                                    <SelectTrigger className="w-[120px] h-[40px]">
                                     <SelectValue placeholder="Select" />
                                     </SelectTrigger>
                                     <SelectContent>
@@ -114,13 +114,13 @@ export default function OptionsCard(){
                                 <Input
                                     type="number"
                                     placeholder="0.00"
-                                    className="flex-1"
+                                    className="flex-1 h-[40px]"
                                     value={formValues.buying.amount}
                                     onChange={(e) => setFormValues(prev => ({ ...prev, buying: { ...prev.buying, amount: e.target.value } }))}
                                 />
                             </div>
                         </div>
-                        <div className="space-y-2">
+                        <div className="space-y-0">
                             <Label className="font-medium">Expiry Date</Label>
                             <Popover>
                                 <PopoverTrigger asChild>
@@ -146,7 +146,7 @@ export default function OptionsCard(){
                                 </PopoverContent>
                             </Popover>
                         </div>
-                        <div className="space-y-2">
+                        <div className="space-y-0">
                             <Label className="font-medium">Strike Price</Label>
                             <Input
                                 type="number"
@@ -158,8 +158,8 @@ export default function OptionsCard(){
                         </div>
                     </div>
                 </CardContent>
-                <div className="w-full flex justify-center items-center h-[40px]">
-                    <Button variant={'selected'} className="w-[90%] flex ">
+                <div className="w-full flex justify-center items-center h-[40px] px-[24px]">
+                    <Button variant={'selected'} className="w-full flex ">
                         Connect Wallet to Trade
                     </Button>
                 </div>
