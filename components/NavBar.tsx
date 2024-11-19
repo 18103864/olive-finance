@@ -39,13 +39,13 @@ export default function NavBar(){
                                 BETA
                             </span>
                         </Link>
-                        <Link href='/'
+                        <Link href='/earn'
                             className={cn(buttonVariants({variant: active === "Earn" ? "selected" : 'unselected'}))}
                             onClick={() => handleClick('Earn')}
                         >
                             Earn
                         </Link>
-                        <Link href='/'
+                        <Link href='/portfolio'
                             className={cn(buttonVariants({variant: active === "Portfolio" ? "selected" : 'unselected'}))}
                             onClick={() => handleClick('Portfolio')}
                         >
