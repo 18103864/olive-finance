@@ -81,7 +81,7 @@ export default function OptionsCard(){
                             <div className="flex relative">
                                 <div className="absolute left-2 top-1/2 transform -translate-y-1/2 z-20">
                                     <Select value={formValues.selling.currency} onValueChange={(value) => setFormValues(prev => ({ ...prev, selling: { ...prev.selling, currency: value } }))}>
-                                        <SelectTrigger className="w-[150px] h-[40px]">
+                                        <SelectTrigger className="w-[150px] h-[40px] hover:outline hover:outline-2 hover:outline-[#9B7EBD]">
                                         <div className="flex items-center space-x-2">
                                             <Image src={btc} alt="bitcoin" height={24} width={24}/>
                                             <SelectValue placeholder="Select"/>
@@ -108,7 +108,7 @@ export default function OptionsCard(){
                             <div className="flex relative">
                                 <div className="absolute left-2 top-1/2 transform -translate-y-1/2 z-20">
                                     <Select value={formValues.buying.type} onValueChange={(value) => setFormValues(prev => ({ ...prev, buying: { ...prev.buying, type: value } }))}>
-                                        <SelectTrigger className="w-[150px] h-[40px]">
+                                        <SelectTrigger className="w-[150px] h-[40px] hover:outline hover:outline-2 hover:outline-[#9B7EBD]">
                                         <SelectValue placeholder="Select" />
                                         </SelectTrigger>
                                         <SelectContent>

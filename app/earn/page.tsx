@@ -1,3 +1,10 @@
+import StrategyCards from "@/components/StrategyCards";
+
+
 export default function earnPage(){
-    return <h1>earn</h1>
+    return (
+        <div>
+            <StrategyCards />
+        </div>
+    )
 }

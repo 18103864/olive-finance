@@ -6,8 +6,7 @@ import OptionsCard from "@/components/OptionsCard";
 
 export default function Home() {
   return (
-    <div className="p-[40px] space-y-6">
-          <NavBar />
+    <div className="space-y-6">
           <CryptoNav />
           <OptionsCard />
     </div>
