@@ -22,7 +22,7 @@ const buttonVariants = cva(
         selected: "text-white bg-gradient-to-r from-[#3B1E54] to-[#9B7EBD]",
         unselected: "hover:bg-[#F3EDF7] text-[#9B7EBD] shadow-sm bg-[#F5F0F8]",
         ghostPink: "hover:bg-[#DDD1E8] hover:text-[#9B7EBD]",
-        calendar: "border border-input bg-background shadow-sm",
+        calendar: " bg-background ",
         paginationGhost: "text-[#CCBEDD] hover:bg-[#DDD1E8] hover:text-[#9B7EBD]",
         paginationOutline: "border border-[#F3EDF7] bg-background shadow-sm text-[#9B7EBD]"
       },

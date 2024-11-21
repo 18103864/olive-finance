@@ -8,8 +8,10 @@ import { Label } from "./ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "./ui/select";
 
 import btc from '../public/images/bitcoin.png'
-import { RefreshCcw } from 'lucide-react';
+import { RefreshCcw, History} from 'lucide-react';
+
 import Image from "next/image";
+import swapIcon from "@/public/svgs/swap.svg"
 import { Input } from "./ui/input";
 import { Popover, PopoverContent, PopoverTrigger } from "./ui/popover";
 import { Button } from "./ui/button";
@@ -53,24 +55,33 @@ export default function OptionsCard(){
                                 className={cn("data-[state=active]:bg-gradient-to-r data-[state=active]:from-[#3B1E54] data-[state=active]:to-[#9B7EBD] data-[state=active]:text-[#FDFDFD] h-[40px]")}>
                                 European
                             </TabsTrigger>
-                            <TabsTrigger value="Asian" 
+                            <TabsTrigger value="Asian" disabled
                                 className={cn("data-[state=active]:bg-gradient-to-r data-[state=active]:from-[#3B1E54] data-[state=active]:to-[#9B7EBD] data-[state=active]:text-[#FDFDFD] h-[40px]")}>
                                 Asian
                             </TabsTrigger>
-                            <TabsTrigger value="Rainbow" 
+                            <TabsTrigger value="Rainbow" disabled
                                 className={cn("data-[state=active]:bg-gradient-to-r data-[state=active]:from-[#3B1E54] data-[state=active]:to-[#9B7EBD] data-[state=active]:text-[#FDFDFD] h-[40px]")}>
                                 Rainbow
                             </TabsTrigger>
                         </TabsList>
                     </Tabs>
 
-                    <div className="space-y-6">
-                        <div className="flex justify-end mb-1">
+                    <div className="space-y-2">
+                        <div className="flex justify-end mb-1 gap-1">
                             <Button 
                                 type="button" 
                                 variant="ghostPink" 
                                 size='icon' 
-                                className="h-6 w-6 rounded-md bg-[#F5F0F8] p-0"
+                                className="h-8 w-8 rounded-md bg-[#F5F0F8] p-0"
+                            >
+                                <History className="text-[#9B7EBD] text-sm"/>
+                                <span className="sr-only">History</span>
+                            </Button>
+                            <Button 
+                                type="button" 
+                                variant="ghostPink" 
+                                size='icon' 
+                                className="h-8 w-8 rounded-md bg-[#F5F0F8] p-0"
                                 onClick={() => {
                                     setFormValues({
                                         selling: {currency: 'btc', amount:''},
@@ -86,7 +97,7 @@ export default function OptionsCard(){
                         </div>
                         <div className="space-y-0">
                             <div className="flex relative">
-                                <div className="absolute left-2 top-1/2 transform -translate-y-1/2 z-20">
+                                <div className="absolute left-2 top-1/2 transform -translate-y-1/2 z-20 p-2">
                                     <Label className="font-medium">You&apos;re Selling</Label>
                                     <Select value={formValues.selling.currency} onValueChange={(value) => setFormValues(prev => ({ ...prev, selling: { ...prev.selling, currency: value } }))}>
                                         <SelectTrigger className="w-[150px] h-[40px] hover:outline hover:outline-2 hover:outline-[#9B7EBD]">
@@ -111,9 +122,15 @@ export default function OptionsCard(){
                                 />
                             </div>
                         </div>
+                        <div className="flex items-center justify-center relative">
+                            <div className="border-t border-gray-200 w-full absolute"></div>
+                            <Button variant="ghostPink" className="h-12 w-12 rounded-md bg-[#F3EDF7] z-10 p-2">
+                                <Image src={swapIcon} alt="swap" width={32} height={32}/>
+                            </Button>
+                        </div>
                         <div className="space-y-0">
                             <div className="flex relative">
-                                <div className="absolute left-2 top-1/2 transform -translate-y-1/2 z-20">
+                                <div className="absolute left-2 top-1/2 transform -translate-y-1/2 z-20 p-2">
                                     <Label className="font-medium">You&apos;re Buying</Label>
                                     <Select value={formValues.buying.type} onValueChange={(value) => setFormValues(prev => ({ ...prev, buying: { ...prev.buying, type: value } }))}>
                                         <SelectTrigger className="w-[150px] h-[40px] hover:outline hover:outline-2 hover:outline-[#9B7EBD]">
@@ -134,13 +151,13 @@ export default function OptionsCard(){
                                 />
                             </div>
                         </div>
-                        <div className="space-y-0">
-                            <Label className="font-medium">Expiry Date</Label>
+                        <div className="border rounded-md p-2 space-y-0 h-[80px] flex flex-col justify-center">
+                            <Label className="font-medium pl-2">Expiry Date</Label>
                             <Popover>
                                 <PopoverTrigger asChild>
                                     <Button 
                                         variant={'calendar'}
-                                        className={cn("w-full justify-between text-left font-normal h-[56px] p-2",
+                                        className={cn("w-full justify-between text-left font-normal p-2",
                                             !formValues.expiryDate && "text-muted-foreground"
                                         )}
                                     >
@@ -160,14 +177,14 @@ export default function OptionsCard(){
                                 </PopoverContent>
                             </Popover>
                         </div>
-                        <div className="space-y-0">
-                            <Label className="font-medium">Strike Price</Label>
+                        <div className="border rounded-md p-2 space-y-0 h-[80px] flex flex-col justify-center">
+                            <Label className="font-medium p-2">Strike Price</Label>
                             <Input
                                 type="number"
                                 placeholder="Enter Strike Price"
                                 value={formValues.strikePrice}
                                 onChange={(e) => setFormValues(prev => ({ ...prev, strikePrice: e.target.value }))}
-                                className="h-[56px] p-2 text-base"
+                                className="h-[56px] text-base border-none shadow-none p-2"
                             />
                         </div>
                     </div>
