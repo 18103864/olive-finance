@@ -8,7 +8,7 @@ import { useState } from "react"
 import { cn } from "@/lib/utils"
 
 
-export default function porfolioPage(){
+export default function PortfolioPage(){
     const [active, setActive] = useState<string>("Positions")
 
     const handleClickActive = (state:string) =>{
