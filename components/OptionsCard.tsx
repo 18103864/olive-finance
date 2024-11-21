@@ -44,14 +44,22 @@ export default function OptionsCard(){
                         className="w-full"
                         onValueChange={(value)=>setPosition(value)}
                     >
-                        <TabsList className="grid w-full h-[56px] grid-cols-2 bg-[#F5F0F8] text-[#9B7EBD] p-2">
-                            <TabsTrigger value="long" 
+                        <TabsList className="grid w-full h-[56px] grid-cols-4 bg-[#F5F0F8] text-[#9B7EBD] p-2">
+                            <TabsTrigger value="American" 
                                 className={cn("data-[state=active]:bg-gradient-to-r data-[state=active]:from-[#3B1E54] data-[state=active]:to-[#9B7EBD] data-[state=active]:text-[#FDFDFD] h-[40px]")}>
-                                Long
+                                American
                             </TabsTrigger>
-                            <TabsTrigger value="short" 
+                            <TabsTrigger value="European" 
                                 className={cn("data-[state=active]:bg-gradient-to-r data-[state=active]:from-[#3B1E54] data-[state=active]:to-[#9B7EBD] data-[state=active]:text-[#FDFDFD] h-[40px]")}>
-                                Short
+                                European
+                            </TabsTrigger>
+                            <TabsTrigger value="Asian" 
+                                className={cn("data-[state=active]:bg-gradient-to-r data-[state=active]:from-[#3B1E54] data-[state=active]:to-[#9B7EBD] data-[state=active]:text-[#FDFDFD] h-[40px]")}>
+                                Asian
+                            </TabsTrigger>
+                            <TabsTrigger value="Rainbow" 
+                                className={cn("data-[state=active]:bg-gradient-to-r data-[state=active]:from-[#3B1E54] data-[state=active]:to-[#9B7EBD] data-[state=active]:text-[#FDFDFD] h-[40px]")}>
+                                Rainbow
                             </TabsTrigger>
                         </TabsList>
                     </Tabs>
@@ -77,9 +85,9 @@ export default function OptionsCard(){
                             </Button>
                         </div>
                         <div className="space-y-0">
-                            <Label className="font-medium">You&apos;re Selling</Label>
                             <div className="flex relative">
                                 <div className="absolute left-2 top-1/2 transform -translate-y-1/2 z-20">
+                                    <Label className="font-medium">You&apos;re Selling</Label>
                                     <Select value={formValues.selling.currency} onValueChange={(value) => setFormValues(prev => ({ ...prev, selling: { ...prev.selling, currency: value } }))}>
                                         <SelectTrigger className="w-[150px] h-[40px] hover:outline hover:outline-2 hover:outline-[#9B7EBD]">
                                         <div className="flex items-center space-x-2">
@@ -99,14 +107,14 @@ export default function OptionsCard(){
                                     placeholder="0.00"
                                     value={formValues.selling.amount}
                                     onChange={(e) => setFormValues(prev => ({ ...prev, selling: { ...prev.selling, amount: e.target.value } }))}
-                                    className="flex-1 w-full h-[56px] text-right"
+                                    className="flex-1 w-full h-[90px] text-right text-lg md:text-xl"
                                 />
                             </div>
                         </div>
                         <div className="space-y-0">
-                            <Label className="font-medium">You&apos;re Buying</Label>
                             <div className="flex relative">
                                 <div className="absolute left-2 top-1/2 transform -translate-y-1/2 z-20">
+                                    <Label className="font-medium">You&apos;re Buying</Label>
                                     <Select value={formValues.buying.type} onValueChange={(value) => setFormValues(prev => ({ ...prev, buying: { ...prev.buying, type: value } }))}>
                                         <SelectTrigger className="w-[150px] h-[40px] hover:outline hover:outline-2 hover:outline-[#9B7EBD]">
                                         <SelectValue placeholder="Select" />
@@ -120,7 +128,7 @@ export default function OptionsCard(){
                                 <Input
                                     type="number"
                                     placeholder="0.00"
-                                    className="flex-1 w-full h-[56px] text-right"
+                                    className="flex-1 w-full h-[90px] text-right text-lg md:text-xl"
                                     value={formValues.buying.amount}
                                     onChange={(e) => setFormValues(prev => ({ ...prev, buying: { ...prev.buying, amount: e.target.value } }))}
                                 />
@@ -159,7 +167,7 @@ export default function OptionsCard(){
                                 placeholder="Enter Strike Price"
                                 value={formValues.strikePrice}
                                 onChange={(e) => setFormValues(prev => ({ ...prev, strikePrice: e.target.value }))}
-                                className="h-[56px] p-2"
+                                className="h-[56px] p-2 text-base"
                             />
                         </div>
                     </div>
