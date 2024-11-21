@@ -26,10 +26,10 @@ export default function NavBar(){
 
 
     return <>
-        <div className="">
+       
             <header className="bg-[#FDFDFD] border-gray-200">
-                <div className="flex h-[40px] items-center mx-auto">
-                    <nav className="flex items-center space-x-4">
+                <div className="flex h-[40px] items-center mx-auto justify-between">
+                    <nav className="flex h-[40px] w-auto items-center space-x-4">
                         <Link href='/' 
                             className={cn(buttonVariants({variant: active === "Options" ? "selected" : 'unselected'}))}
                             onClick={() => handleClick('Options')}
@@ -81,8 +81,8 @@ export default function NavBar(){
                             </DropdownMenuContent>
                         </DropdownMenu>
                     </nav>
-                    <div className="ml-auto flex items-center space-x-4">
-                        <div className={cn(buttonVariants({variant: 'unselected'}),"flex items-center")}>
+                    <div className="w-auto h-[40px] flex items-center space-x-4">
+                        <div className={cn(buttonVariants({variant: 'unselected'}),"flex items-center w-auto")}>
                             <Switch 
                                 checked={isDark}
                                 onCheckedChange={toggleTheme}
@@ -100,6 +100,6 @@ export default function NavBar(){
                     </div>
                 </div>
             </header>
-        </div>
+
     </>
 }

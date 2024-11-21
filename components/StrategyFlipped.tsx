@@ -47,7 +47,7 @@ export default function StrategyFlipped({onClose, strategy}:StrategyFlippedProps
 
 
     return (
-        <Card className="w-full h-full max-w-[264px] min-h-[384px] space-x-2">
+        <Card className="w-full h-full min-h-[384px] space-x-2">
             <Tabs
                 defaultValue="deposit"
                 onValueChange={(value) => setActiveTab(value as "deposit" | "withdraw")}

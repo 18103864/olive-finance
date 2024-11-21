@@ -69,13 +69,13 @@ export default function StrategyCards(){
                 depositAsset={depositAsset}
                 setDepositAsset={setDepositAsset}
             />
-            <div className="grid grid-cols-1  sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-5 gap-4 justify-items-center">
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-5 gap-4 justify-items-center">
                 {currentCards.map((strategy, index) => (
-                    <div key={index} onClick={() => setSelectedStrategyCard(index)} className="w-full max-w-[264px] min-h-[384px] space-x-2">
+                    <div key={index} onClick={() => setSelectedStrategyCard(index)} className="w-full space-x-2">
                     {selectedStrategyCard === index ? (
                         <StrategyFlipped onClose={() => setSelectedStrategyCard(null)} strategy={{name:"Strategy", apy: strategy.apy}}/>
                     ) : (
-                        <Card className="w-full h-full max-w-[264px] min-h-[384px] space-x-2">
+                        <Card className="w-full h-[384px] space-x-2">
                             <CardHeader className="border-b-2">
                                 <div className="flex items-start justify-between">
                                     <div className="flex items-start gap-2"> 
