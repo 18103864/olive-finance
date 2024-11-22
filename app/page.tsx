@@ -1,5 +1,4 @@
 import CryptoNav from "@/components/CryptoNav";
-import NavBar from "@/components/NavBar";
 import OptionsCard from "@/components/OptionsCard";
 
 
