@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from "react"
-import { Card, CardContent, CardFooter, CardHeader } from "./ui/card"
+import { Card, CardContent, CardHeader } from "./ui/card"
 import { Tabs, TabsList, TabsTrigger } from "./ui/tabs"
 import { cn } from "@/lib/utils"
 import { Label } from "./ui/label"
@@ -96,7 +96,7 @@ export default function StrategyFlipped({onClose, strategy}:StrategyFlippedProps
                                 value={`$${amount.toLocaleString()}`}
                                 onChange={handleInputChange}
                                 className="text-left"
-                                aria-label="Enter deposit amount"
+                                aria-label="Enter deposit/withdraw amount"
                             />
                             <Slider
                                 value={[amount]}
@@ -104,7 +104,7 @@ export default function StrategyFlipped({onClose, strategy}:StrategyFlippedProps
                                 step={100}
                                 onValueChange={handleSliderChange}
                                 className="py-4"
-                                aria-label="Adjust deposit amount"
+                                aria-label="Adjust deposit/withdraw amount"
                             />
                             <div className="flex flex-col">
                                 <div className="flex items-center justify-between text-sm">
