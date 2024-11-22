@@ -8,11 +8,13 @@ import { useState } from "react";
 import { cn } from "@/lib/utils";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "./ui/dropdown-menu";
 import WalletModal from "./WalletModal";
+import { useWallet } from "@/contexts/walletprovider";
 
 export default function NavBar(){
     const [active, setActive] = useState<string>("Options");
     const [isDark, setIsDark] = useState(false);
     const [isWalletModalOpen, setIsWalletModalOpen] = useState(false)
+    const { isConnected, address, disconnect } = useWallet();
 
     const toggleTheme = () => {
         setIsDark(!isDark)
@@ -23,6 +25,10 @@ export default function NavBar(){
             setActive(state)
         }
     }
+    
+    const truncateAddress = (address: string) => {
+        return `${address.slice(0, 4)}...${address.slice(-4)}`;
+    };
 
 
     return <>
@@ -90,9 +96,16 @@ export default function NavBar(){
                             />
                             {isDark ? <Moon className="h-[24px] w-[24px]" /> : <Sun className="h-[24px] w-[24px]" />}
                         </div>
-                        <Button variant='selected' onClick={() => setIsWalletModalOpen(true)}>
-                            Connect Wallet
-                        </Button>
+                        {isConnected ? (
+                            <Button variant='selected' onClick={disconnect}>
+                                {address ? truncateAddress(address) : 'Connected'}
+                            </Button>
+                        ) : (
+                            <Button variant='selected' onClick={() => setIsWalletModalOpen(true)}>
+                                Connect Wallet
+                            </Button>
+                        )}
+                        
                         <WalletModal 
                         isOpen={isWalletModalOpen} 
                         onClose={() => setIsWalletModalOpen(false)}

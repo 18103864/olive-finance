@@ -19,6 +19,7 @@ import { format } from "date-fns";
 import { CalendarIcon } from "lucide-react";
 import { Calendar } from "./ui/calendar";
 import WalletModal from "./WalletModal";
+import { useWallet } from "@/contexts/walletprovider";
 
 
 export default function OptionsCard(){
@@ -36,6 +37,8 @@ export default function OptionsCard(){
         expiryDate: undefined,
         strikePrice: ''
       })
+
+    const { isConnected, walletName } = useWallet();
  
     return (
         <>
@@ -190,8 +193,8 @@ export default function OptionsCard(){
                     </div>
                 </CardContent>
                 <div className="w-full flex justify-center items-center h-[56px] px-[24px]">
-                    <Button variant={'selected'} className="w-full flex " onClick={() => setIsWalletModalOpen(true)}>
-                        Connect Wallet to Trade
+                    <Button variant={'selected'} className="w-full flex " onClick={() => isConnected ? console.log('Initiate Trade') : setIsWalletModalOpen(true)}>
+                        {isConnected && walletName ? `Trade With ${walletName}` : 'Connect Wallet to Trade'}
                     </Button>
                     <WalletModal 
                         isOpen={isWalletModalOpen} 

@@ -6,6 +6,7 @@ import { ChevronDown, ChevronUp } from "lucide-react"
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "./ui/dialog"
 import { cn } from "@/lib/utils"
 import WalletButton from "./WalletButton"
+import { useWallet } from "@/contexts/walletprovider"
 
 
 interface WalletModalProps {
@@ -53,7 +54,13 @@ const allWallets: Wallet[] = [
 export default function WalletModal({isOpen, onClose} : WalletModalProps){
     const [isMoreWalletOpen, setIsMoreWalletOpen] = useState(false);
     const primaryWallets = allWallets.slice(0,9);
-    const moreWallets = allWallets.slice(9)
+    const moreWallets = allWallets.slice(9);
+    const { connect } = useWallet();
+
+    const handleWalletConnect = (walletName: string) => {
+        connect(walletName);
+        onClose();
+    }
 
     return (
         <Dialog open={isOpen} onOpenChange={onClose}>
@@ -65,7 +72,7 @@ export default function WalletModal({isOpen, onClose} : WalletModalProps){
                     <div className="space-y-5 flex flex-col justify-between">
                         <div className="grid grid-cols-3 gap-5">
                             {primaryWallets.map((wallet) => (
-                                <WalletButton key={wallet.name} {...wallet} />
+                                <WalletButton key={wallet.name} {...wallet} onClick={() => handleWalletConnect(wallet.name)}/>
                             ))}
                         </div>
                         <div id="more-wallets"
@@ -74,7 +81,7 @@ export default function WalletModal({isOpen, onClose} : WalletModalProps){
                             isMoreWalletOpen ? "opacity-100" : "hidden opacity-0"
                         )}>
                             {moreWallets.map((wallet) => (
-                                <WalletButton key={wallet.name} {...wallet} />
+                                <WalletButton key={wallet.name} {...wallet} onClick={() => handleWalletConnect(wallet.name)}/>
                             ))}
                         </div>
                     </div>

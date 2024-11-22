@@ -52,7 +52,7 @@ export default function PortfolioCards(){
                         <PortfolioFlipped onClose={() => setSelectedCard(null)} coin={position.coin}/>
                     ) : (
                         <>
-                            <CardHeader className="border-b-2">
+                            <CardHeader className="border-b-2 cursor-pointer">
                                 <div className="flex justify-between items-start">
                                     <div className="flex justify-between items-start">
                                         <span className="font-bold text-base">{position.coin}</span>

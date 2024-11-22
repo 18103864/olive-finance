@@ -76,7 +76,7 @@ export default function StrategyCards(){
                         <StrategyFlipped onClose={() => setSelectedStrategyCard(null)} strategy={{name:"Strategy", apy: strategy.apy}}/>
                     ) : (
                         <Card className="w-full h-[384px] space-x-2">
-                            <CardHeader className="border-b-2">
+                            <CardHeader className="border-b-2 cursor-pointer">
                                 <div className="flex items-start justify-between">
                                     <div className="flex items-start gap-2"> 
                                         <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none">
