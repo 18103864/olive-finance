@@ -44,6 +44,7 @@ export default function StrategyFilters({sortBy, setSortBy, strategyType, setStr
                         </div>
                         </SelectTrigger>
                         <SelectContent>
+                            <SelectItem value="all" >All Deposit Assets</SelectItem>
                             <SelectItem value="BTC" >BTC</SelectItem>
                             <SelectItem value="ETH" >ETH</SelectItem>
                             <SelectItem value="USDT" >USDT</SelectItem>

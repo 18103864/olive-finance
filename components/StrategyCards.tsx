@@ -18,7 +18,7 @@ interface Strategy {
 export default function StrategyCards(){
     const [sortBy, setSortBy] = useState<string>("featured");
     const [strategyType, setStrategyType] = useState<string>("all");
-    const [depositAsset, setDepositAsset] = useState<string>("");
+    const [depositAsset, setDepositAsset] = useState<string>("all");
     const [currentPage, setCurrentPage] = useState(1);
     const [selectedStrategyCard, setSelectedStrategyCard] = useState<number | null>(null);
     const cardsPerPage = 10;
@@ -43,7 +43,7 @@ export default function StrategyCards(){
 
     const filteredStrategies = allStrategies.filter(strategy => {
         if(strategyType !=='all' && strategy.type !== strategyType) return false;
-        if(depositAsset !=="" && strategy.depositAsset !== depositAsset ) return false;
+        if(depositAsset !=="all" && strategy.depositAsset !== depositAsset ) return false;
         return true;
     }).sort((a, b) => {
         if (sortBy === 'featured' ) return 0;

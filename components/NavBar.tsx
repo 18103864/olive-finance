@@ -9,6 +9,7 @@ import { cn } from "@/lib/utils";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "./ui/dropdown-menu";
 import WalletModal from "./WalletModal";
 import { useWallet } from "@/contexts/walletprovider";
+import WalletSideBar from "./WalletSidebar";
 
 export default function NavBar(){
     const [active, setActive] = useState<string>("Options");
@@ -97,9 +98,7 @@ export default function NavBar(){
                             {isDark ? <Moon className="h-[24px] w-[24px]" /> : <Sun className="h-[24px] w-[24px]" />}
                         </div>
                         {isConnected ? (
-                            <Button variant='selected' onClick={disconnect}>
-                                {address ? truncateAddress(address) : 'Connected'}
-                            </Button>
+                            <WalletSideBar></WalletSideBar>
                         ) : (
                             <Button variant='selected' onClick={() => setIsWalletModalOpen(true)}>
                                 Connect Wallet
