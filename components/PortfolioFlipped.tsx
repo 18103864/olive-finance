@@ -41,11 +41,11 @@ export default function PortfolioFlipped({onClose, coin}:PortfolioFlippedProps){
                 className="flex flex-col h-full space-y-4"
             >
                 <CardHeader className="h-[32px]">
-                    <TabsList className="w-full grid grid-cols-2 bg-[#F5F0F8] text-[#9B7EBD]">
+                    <TabsList className="w-full grid grid-cols-2 bg-secondary text-dark">
                         <TabsTrigger 
                             value="Open"
                             className={cn(
-                            "data-[state=active]:bg-gradient-to-r data-[state=active]:from-[#3B1E54] data-[state=active]:to-[#9B7EBD] data-[state=active]:text-[#FDFDFD]"
+                            "data-[state=active]:bg-gradient data-[state=active]:text-light"
                             )}
                         >
                             Open
@@ -53,7 +53,7 @@ export default function PortfolioFlipped({onClose, coin}:PortfolioFlippedProps){
                         <TabsTrigger 
                             value="Close"
                             className={cn(
-                            "data-[state=active]:bg-gradient-to-r data-[state=active]:from-[#3B1E54] data-[state=active]:to-[#9B7EBD] data-[state=active]:text-[#FDFDFD]"
+                            "data-[state=active]:bg-gradient data-[state=active]:text-light"
                             )}
                         >
                             Close
@@ -69,11 +69,11 @@ export default function PortfolioFlipped({onClose, coin}:PortfolioFlippedProps){
                                     type="button"
                                     variant="ghostPink"
                                     size="icon"
-                                    className="h-6 w-6 rounded-md bg-[#F5F0F8] p-0"
+                                    className="h-6 w-6 rounded-md bg-secondary p-0"
                                     onClick={resetToDefault}
                                     aria-label="Reset amount"
                                 >
-                                    <RefreshCcw className="text-[#9B7EBD] h-4 w-4" />
+                                    <RefreshCcw className="text-dark h-4 w-4" />
                                 </Button>
                             </div>
                             <Input 

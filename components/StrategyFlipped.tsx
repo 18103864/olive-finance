@@ -54,11 +54,11 @@ export default function StrategyFlipped({onClose, strategy}:StrategyFlippedProps
                 className="flex flex-col h-full"
             >
                 <CardHeader className="flex-shrink-0 pb-3">
-                    <TabsList className="w-full grid grid-cols-2 bg-[#F5F0F8] text-[#9B7EBD]">
+                    <TabsList className="w-full grid grid-cols-2 bg-secondary text-dark">
                     <TabsTrigger
                         value="deposit"
                         className={cn(
-                        "data-[state=active]:bg-gradient-to-r data-[state=active]:from-[#3B1E54] data-[state=active]:to-[#9B7EBD] data-[state=active]:text-[#FDFDFD]"
+                        "data-[state=active]:bg-gradient data-[state=active]:text-light"
                         )}
                     >
                         Deposit
@@ -66,7 +66,7 @@ export default function StrategyFlipped({onClose, strategy}:StrategyFlippedProps
                     <TabsTrigger
                         value="withdraw"
                         className={cn(
-                        "data-[state=active]:bg-gradient-to-r data-[state=active]:from-[#3B1E54] data-[state=active]:to-[#9B7EBD] data-[state=active]:text-[#FDFDFD]"
+                        "data-[state=active]:bg-gradient data-[state=active]:text-light"
                         )}
                     >
                         Withdraw
@@ -82,11 +82,11 @@ export default function StrategyFlipped({onClose, strategy}:StrategyFlippedProps
                             type="button"
                             variant="ghostPink"
                             size="icon"
-                            className="h-6 w-6 rounded-md bg-[#F5F0F8] p-0"
+                            className="h-6 w-6 rounded-md bg-secondary p-0"
                             onClick={resetToDefault}
                             aria-label="Reset amount"
                         >
-                            <RefreshCcw className="text-[#9B7EBD] text-sm" />
+                            <RefreshCcw className="text-dark text-sm" />
                         </Button>
                         </div>
                         <div className="flex flex-col space-y-2 flex-grow">
@@ -136,7 +136,7 @@ export default function StrategyFlipped({onClose, strategy}:StrategyFlippedProps
                     {isPreview && (
                         <div className="flex-shrink-0 pb-4 w-full">
                             <Button
-                                className="w-full bg-gradient-to-r from-[#3B1E54] to-[#9B7EBD] text-white hover:from-[#3B1E54] hover:to-[#8A6BAC]"
+                                className="w-full bg-gradient text-light"
                                 onClick={handlePreviewClick}
                             >
                                 {activeTab === "deposit" ? "Deposit" : "Withdraw"} Now
@@ -147,7 +147,7 @@ export default function StrategyFlipped({onClose, strategy}:StrategyFlippedProps
                     {!isPreview &&(
                         <div className="flex-shrink-0 pb-4 w-full">
                             <Button
-                                className="w-full bg-gradient-to-r from-[#3B1E54] to-[#9B7EBD] text-white hover:from-[#3B1E54] hover:to-[#8A6BAC]"
+                                className="w-full bg-gradient text-light"
                                 onClick={handlePreviewClick}
                             >
                                 Preview {activeTab === "deposit" ? "Deposit" : "Withdrawal"}

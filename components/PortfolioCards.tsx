@@ -57,7 +57,7 @@ export default function PortfolioCards(){
                                     <div className="flex justify-between items-start">
                                         <span className="font-bold text-base">{position.coin}</span>
                                     </div>
-                                    <Badge variant="secondary" className="bg-[#F0E8F6] hover:bg-[#F0E8F6]">
+                                    <Badge variant="secondary" className="bg-secondary hover:bg-primary">
                                         {position.strategyType}
                                     </Badge>
                                 </div>

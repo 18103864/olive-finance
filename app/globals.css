@@ -33,32 +33,42 @@ body {
     --chart-4: 43 74% 66%;
     --chart-5: 27 87% 67%;
     --radius: 0.5rem;
+    --gradient-start: 268, 32%, 62%;
+    --gradient-end: 95 47% 22%;
+    --gradient: linear-gradient(to left, hsl(var(--gradient-start)), hsl(var(--gradient-end)));
+    --text-dark: 0, 0%, 90%; 
+    --text-light: 0, 0%, 30%;
   }
   .dark {
-    --background: 224 71.4% 4.1%;
+    --background: 60, 2%, 10%;
     --foreground: 210 20% 98%;
-    --card: 224 71.4% 4.1%;
+    --card: 60, 2%, 10%;
     --card-foreground: 210 20% 98%;
-    --popover: 224 71.4% 4.1%;
+    --popover: 60, 2%, 10%;
     --popover-foreground: 210 20% 98%;
-    --primary: 210 20% 98%;
+    --primary: 76, 45%, 43%;
     --primary-foreground: 220.9 39.3% 11%;
-    --secondary: 215 27.9% 16.9%;
+    --secondary: 81, 23%, 15%;
     --secondary-foreground: 210 20% 98%;
-    --muted: 215 27.9% 16.9%;
+    --muted: 81, 23%, 15%;
     --muted-foreground: 217.9 10.6% 64.9%;
-    --accent: 215 27.9% 16.9%;
+    --accent: 81, 23%, 15%;
     --accent-foreground: 210 20% 98%;
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 210 20% 98%;
-    --border: 215 27.9% 16.9%;
-    --input: 215 27.9% 16.9%;
-    --ring: 216 12.2% 83.9%;
+    --border: 0, 0%, 22%;
+    --input: 88, 33%, 19%;
+    --ring: 0, 0%, 22%;
     --chart-1: 220 70% 50%;
     --chart-2: 160 60% 45%;
     --chart-3: 30 80% 55%;
     --chart-4: 280 65% 60%;
     --chart-5: 340 75% 55%;
+    --gradient-start: 74 45% 43%;
+    --gradient-end: 95 47% 22%;
+    --gradient: linear-gradient(to left, hsl(var(--gradient-start)), hsl(var(--gradient-end)));
+    --text-dark: 82, 45%, 34%;
+    --text-light: 72, 83%, 93%;
   }
 }
 

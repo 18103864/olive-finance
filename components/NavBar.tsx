@@ -34,7 +34,7 @@ export default function NavBar(){
 
     return <>
        
-            <header className="bg-[#FDFDFD] border-gray-200">
+            <header className=" border-gray-200">
                 <div className="flex h-[40px] items-center mx-auto justify-between">
                     <nav className="flex h-[40px] w-auto items-center space-x-4">
                         <Link href='/' 
@@ -42,7 +42,7 @@ export default function NavBar(){
                             onClick={() => handleClick('Options')}
                         >
                             Options
-                            <span className="ml-2 rounded px-1.5 py-0.5 text-xs border">
+                            <span className={ active === "Options" ? 'ml-2 rounded px-1.5 py-0.5 text-xs border-2 border-light' : 'ml-2 rounded px-1.5 py-0.5 text-xs border-2 border-primary'}>
                                 BETA
                             </span>
                         </Link>
@@ -65,7 +65,7 @@ export default function NavBar(){
                                     More
                                 </Button>
                             </DropdownMenuTrigger>
-                            <DropdownMenuContent align="center" className="w-48 text-[#9B7EBD]">
+                            <DropdownMenuContent align="center" className="w-48 text-dark">
                                 {[
                                     "Move",
                                     "Leverage Tokens",

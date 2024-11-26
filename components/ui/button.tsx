@@ -19,9 +19,9 @@ const buttonVariants = cva(
           "bg-secondary text-secondary-foreground shadow-sm hover:bg-secondary/80",
         ghost: "hover:bg-accent hover:text-accent-foreground",
         link: "text-primary underline-offset-4 hover:underline",
-        selected: "text-white bg-gradient-to-r from-[#3B1E54] to-[#9B7EBD]",
-        unselected: "hover:bg-[#F3EDF7] text-[#9B7EBD] shadow-sm bg-[#F5F0F8]",
-        ghostPink: "hover:bg-[#DDD1E8] hover:text-[#9B7EBD]",
+        selected: "text-light bg-gradient",
+        unselected: "hover:bg-primary hover:text-light text-dark shadow-sm bg-secondary",
+        ghostPink: "hover:bg-primary hover:text-dark",
         calendar: " bg-background ",
         paginationGhost: "text-[#CCBEDD] hover:bg-[#DDD1E8] hover:text-[#9B7EBD]",
         paginationOutline: "border border-[#F3EDF7] bg-background shadow-sm text-[#9B7EBD]"

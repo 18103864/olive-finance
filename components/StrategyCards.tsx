@@ -96,7 +96,7 @@ export default function StrategyCards(){
                                         </svg>
                                         <span className="font-bold">Strategy</span>
                                     </div>
-                                    <Badge variant="secondary" className="bg-[#F0E8F6] hover:bg-[#F0E8F6]">
+                                    <Badge variant="secondary" className="bg-secondary hover:bg-primary">
                                         {strategy.type}
                                     </Badge>
                                 </div>
@@ -129,8 +129,8 @@ export default function StrategyCards(){
                                         </div>
                                     </div>
 
-                                    <div className="w-full h-1.5 rounded-full bg-[#EDE4F3]">
-                                        <div className="h-full w-1/3 rounded-full bg-gradient-to-r from-[#3B1E54] to-[#9B7EBD]" />
+                                    <div className="w-full h-1.5 rounded-full bg-secondary">
+                                        <div className="h-full w-1/3 rounded-full bg-gradient" />
                                     </div>
 
                                     <div className="flex flex-col justify-center gap-1">

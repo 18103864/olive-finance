@@ -20,21 +20,21 @@ function Calendar({
       showOutsideDays={showOutsideDays}
       className={cn("p-3", className)}
       classNames={{
-        months: "flex flex-col sm:flex-row space-y-4 sm:space-x-4 sm:space-y-0 text-[#9B7EBD]",
+        months: "flex flex-col sm:flex-row space-y-4 sm:space-x-4 sm:space-y-0 text-dark",
         month: "space-y-4",
         caption: "flex justify-center pt-1 relative items-center",
         caption_label: "text-sm font-medium",
-        nav: "space-x-1 flex items-center text-[#9B7EBD]",
+        nav: "space-x-1 flex items-center text-dark",
         nav_button: cn(
           buttonVariants({ variant: "outline" }),
-          "h-7 w-7 bg-transparent p-0 opacity-50 hover:text-[#9B7EBD] border-[#9B7EBD]"
+          "h-7 w-7 bg-transparent p-0 opacity-50 hover:text-dark border-dark"
         ),
         nav_button_previous: "absolute left-1",
         nav_button_next: "absolute right-1",
         table: "w-full border-collapse space-y-1",
         head_row: "flex",
         head_cell:
-          "text-[#9B7EBD] rounded-md w-8 font-normal text-[0.8rem]",
+          "text-dark rounded-md w-8 font-normal text-[0.8rem]",
         row: "flex w-full mt-2",
         cell: cn(
           "relative p-0 text-center text-sm focus-within:relative focus-within:z-20 [&:has([aria-selected])]:bg-accent [&:has([aria-selected].day-outside)]:bg-accent/50 [&:has([aria-selected].day-range-end)]:rounded-r-md",
@@ -49,11 +49,11 @@ function Calendar({
         day_range_start: "day-range-start",
         day_range_end: "day-range-end",
         day_selected:
-          ("bg-gradient-to-r from-[#3B1E54] to-[#9B7EBD] text-primary-foreground hover:bg-primary hover:text-primary-foreground focus:bg-primary focus:text-primary-foreground"),
-        day_today: "bg-[#F5F0F8] text-[#9B7EBD]",
+          ("bg-gradient text-light hover:bg-primary hover:text-primary-foreground focus:bg-primary focus:text-primary-foreground"),
+        day_today: "bg-secondary text-light",
         day_outside:
-          "day-outside text-[#9B7EBD] aria-selected:bg-accent/50 aria-selected:text-white",
-        day_disabled: "text-[#9B7EBD] opacity-50 text-[#9B7EBD]",
+          "day-outside text-dark aria-selected:bg-accent/50 aria-selected:text-white",
+        day_disabled: "text-dark opacity-50 text-dark",
         day_range_middle:
           "aria-selected:bg-accent aria-selected:text-accent-foreground",
         day_hidden: "invisible",
