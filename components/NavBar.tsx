@@ -10,15 +10,17 @@ import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigge
 import WalletModal from "./WalletModal";
 import { useWallet } from "@/contexts/walletprovider";
 import WalletSideBar from "./WalletSidebar";
+import { useTheme } from "next-themes";
+import { Settings } from 'lucide-react';
 
 export default function NavBar(){
     const [active, setActive] = useState<string>("Options");
-    const [isDark, setIsDark] = useState(false);
+    const { theme, setTheme } = useTheme()
     const [isWalletModalOpen, setIsWalletModalOpen] = useState(false)
-    const { isConnected, address, disconnect } = useWallet();
+    const { isConnected } = useWallet();
 
     const toggleTheme = () => {
-        setIsDark(!isDark)
+        setTheme(theme === 'dark' ? 'light' : 'dark')
     }
 
     const handleClick = (state:string) =>{
@@ -90,12 +92,18 @@ export default function NavBar(){
                     </nav>
                     <div className="w-auto h-[40px] flex items-center space-x-4">
                         <div className={cn(buttonVariants({variant: 'unselected'}),"flex items-center w-auto")}>
+                            {/* <DropdownMenu>
+                                <DropdownMenuTrigger>
+                                    <Settings />
+                                </DropdownMenuTrigger>
+
+                            </DropdownMenu> */}
                             <Switch 
-                                checked={isDark}
+                                checked={theme === 'light'}
                                 onCheckedChange={toggleTheme}
                                 className="data-[state=checked]:bg-[#3B1E54] data-[state=unchecked]:bg-[3B1E5480]"
                             />
-                            {isDark ? <Moon className="h-[24px] w-[24px]" /> : <Sun className="h-[24px] w-[24px]" />}
+                            {theme === 'dark' ? <Moon className="h-[24px] w-[24px]" /> : <Sun className="h-[24px] w-[24px]" />}
                         </div>
                         {isConnected ? (
                             <WalletSideBar></WalletSideBar>

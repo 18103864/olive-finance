@@ -14,14 +14,14 @@ body {
     --card-foreground: 224 71.4% 4.1%;
     --popover: 0 0% 100%;
     --popover-foreground: 224 71.4% 4.1%;
-    --primary: 220.9 39.3% 11%;
+    --primary: 268, 32%, 62%;
     --primary-foreground: 210 20% 98%;
-    --secondary: 220 14.3% 95.9%;
-    --secondary-foreground: 220.9 39.3% 11%;
-    --muted: 220 14.3% 95.9%;
+    --secondary: 271, 33%, 86%;
+    --secondary-foreground: 268, 32%, 62%;
+    --muted: 271, 33%, 86%;
     --muted-foreground: 220 8.9% 46.1%;
-    --accent: 220 14.3% 95.9%;
-    --accent-foreground: 220.9 39.3% 11%;
+    --accent: 271, 33%, 86%;
+    --accent-foreground: 268, 32%, 62%;
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 20% 98%;
     --border: 220 13% 91%;
@@ -34,10 +34,10 @@ body {
     --chart-5: 27 87% 67%;
     --radius: 0.5rem;
     --gradient-start: 268, 32%, 62%;
-    --gradient-end: 95 47% 22%;
+    --gradient-end: 272, 47%, 22%; 
     --gradient: linear-gradient(to left, hsl(var(--gradient-start)), hsl(var(--gradient-end)));
-    --text-dark: 0, 0%, 90%; 
-    --text-light: 0, 0%, 30%;
+    --text-dark: 268, 32%, 62%;
+    --text-light: 0, 0%, 99%
   }
   .dark {
     --background: 60, 2%, 10%;
