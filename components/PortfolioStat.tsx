@@ -1,57 +1,67 @@
 import Image from "next/image";
 import { Card, CardContent } from "./ui/card";
 import positionSvg from "@/public/svgs/positions.svg"
+import { Fullscreen,Database, Trophy, TrendingUp, TrendingUpDown } from 'lucide-react';
+import chart from "@/public/svgs/chart.svg"
 
 
 export default function PortfolioStat(){
     return (
-        <div className="flex gap-10">
-            <div className="grid grid-cols-3 gap-4 mb-6 w-5/6">
-                <Card className="gap-6 flex flex-col justify-center items-start">
-                    <CardContent className="space-y-3">
-                        <div className="text-2xl font-normal">
-                            Net Value
+       <div className="flex justify-start gap-5">
+            <Card className="p-8 rounded-[48px]">
+                <CardContent className="space-y-8 p-0">
+                    <div className="space-y-3">
+                        <div className="flex justify-between items-center">
+                            <div className="flex items-center gap-2">
+                                <Database className="text-2xl"/>
+                                <h1 className="text-2xl">Net Value</h1>
+                            </div>
+                            <Fullscreen />
                         </div>
-                        <div className="text-5xl font-semibold">
-                            $10,561
-                        </div>
-                        <div className="text-base text-muted-foreground font-normal">
-                            100 BTC
-                        </div>
-                    </CardContent>
-                </Card>
-                <Card className="gap-6 flex flex-col justify-center items-start">
-                    <CardContent className="space-y-3">
-                        <div className="text-2xl font-normal">
-                            Profits and Loss
-                        </div>
-                        <div className="text-5xl font-semibold">
-                            $5,329
-                        </div>
-                        <div className="text-base text-muted-foreground font-normal">
-                            100 BTC
-                        </div>
-                    </CardContent>
-                </Card>
-                <Card className="gap-6 flex flex-col justify-center items-start">
-                    <CardContent className="space-y-3">
-                        <div className="text-2xl font-normal">
-                            Points
-                        </div>
-                        <div className="text-5xl font-semibold">
-                            8,712
-                        </div>
-                        <div className="text-base text-muted-foreground font-normal">
-                            Data
-                        </div>
-                    </CardContent>
-                </Card>
-            </div>
-            <Card className="border-none shadow-none">
-                <CardContent>
-                    <Image src={positionSvg} alt="positions" width={200} height={200}/>
+                        <h1 className="text-5xl font-medium">$10,561</h1>
+                    </div>
+                    <div>
+                        <Image src={chart} alt="temporary chart" />
+                    </div>
                 </CardContent>
             </Card>
-        </div>
+            <Card className="p-8 rounded-[48px]">
+                <CardContent className="space-y-8 p-0">
+                    <div className="space-y-3">
+                        <div className="flex justify-between items-center">
+                            <div className="flex items-center gap-2">
+                                <TrendingUpDown className="text-2xl"/>
+                                <h1 className="text-2xl">Profits and Loss</h1>
+                            </div>
+                            <Fullscreen />
+                        </div>
+                        <div className="flex justify-start gap-2 items-center">
+                            <h1 className="text-5xl font-medium">$329</h1>
+                            <TrendingUp size={48} className="text-green-500"/>
+                        </div>
+                    </div>
+                    <div>
+                        <Image src={chart} alt="temporary chart" />
+                    </div>
+                </CardContent>
+            </Card>
+            <Card className="p-8 rounded-[48px]">
+                <CardContent className="space-y-8 p-0">
+                    <div className="space-y-3">
+                        <div className="flex justify-between items-center">
+                            <div className="flex items-center gap-2">
+                                <Trophy className="text-2xl"/>
+                                <h1 className="text-2xl">Points</h1>
+                            </div>
+                            <Fullscreen />
+                        </div>
+                        <h1 className="text-5xl font-medium">8712</h1>
+                    </div>
+                    <div>
+                        <Image src={chart} alt="temporary chart" />
+                    </div>
+                </CardContent>
+            </Card>
+       </div>
     )
 }

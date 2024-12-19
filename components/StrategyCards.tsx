@@ -2,10 +2,13 @@
 
 import { useEffect, useState } from "react";
 import StrategyFilters from "./StrategyFilters";
-import { Card, CardContent, CardHeader } from "./ui/card";
+import { Card, CardContent, CardFooter, CardHeader } from "./ui/card";
 import { Pagination, PaginationContent, PaginationItem, PaginationLink, PaginationNext, PaginationPrevious } from "./ui/pagination";
 import { Badge } from "./ui/badge";
 import StrategyFlipped from "./StrategyFlipped";
+import { Button, buttonVariants } from "./ui/button";
+import { cn } from "@/lib/utils";
+import Link from "next/link";
 
 interface Strategy {
     type: "DC" | "O" | "B+O"| "SF"
@@ -59,6 +62,14 @@ export default function StrategyCards(){
 
     const paginate = (pageNumber: number) => setCurrentPage(pageNumber)
 
+    const handleCardClick = (index: number) =>{
+        if (selectedStrategyCard === index) {
+            setSelectedStrategyCard(null);
+          } else {
+            setSelectedStrategyCard(index);
+          }
+    }
+
     return (
         <div className="w-full h-full space-y-6 flex flex-col justify-between">
             <StrategyFilters
@@ -71,11 +82,11 @@ export default function StrategyCards(){
             />
             <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-5 gap-4 justify-items-center">
                 {currentCards.map((strategy, index) => (
-                    <div key={index} onClick={() => setSelectedStrategyCard(index)} className="w-full space-x-2">
+                    <div key={index} className="w-full space-x-2">
                     {selectedStrategyCard === index ? (
-                        <StrategyFlipped onClose={() => setSelectedStrategyCard(null)} strategy={{name:"Strategy", apy: strategy.apy}}/>
+                        <StrategyFlipped onClose={() => handleCardClick(index)} strategy={{name:"Strategy", apy: strategy.apy}}/>
                     ) : (
-                        <Card className="w-full h-[384px] space-x-2">
+                        <Card className="w-full h-[384px] space-x-2 bg-backgroundSecondary"  onClick={() => handleCardClick(index)}>
                             <CardHeader className="border-b-2 cursor-pointer">
                                 <div className="flex items-start justify-between">
                                     <div className="flex items-start gap-2"> 
@@ -96,14 +107,14 @@ export default function StrategyCards(){
                                         </svg>
                                         <span className="font-bold">Strategy</span>
                                     </div>
-                                    <Badge variant="secondary" className="bg-secondary hover:bg-primary">
+                                    <Badge className="bg-primary-foreground border-none text-primary p-1">
                                         {strategy.type}
                                     </Badge>
                                 </div>
                             </CardHeader>
 
-                            <CardContent className="p-6">
-                                <div className="space-y-2">
+                            <CardContent className="flex flex-col flex-grow py-6">
+                                <div className="space-y-2 flex flex-col h-full">
                                     <div className="flex flex-col justify-center gap-1">
                                         <div className="flex items-center space-x-2 font-medium">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none">
@@ -130,7 +141,7 @@ export default function StrategyCards(){
                                     </div>
 
                                     <div className="w-full h-1.5 rounded-full bg-secondary">
-                                        <div className="h-full w-1/3 rounded-full bg-gradient" />
+                                        <div className="h-full w-1/3 rounded-full bg-primary" />
                                     </div>
 
                                     <div className="flex flex-col justify-center gap-1">
@@ -185,6 +196,15 @@ export default function StrategyCards(){
                                         </div>
                                         <span className="text-sm">{strategy.underlyingAsset}</span>
                                     </div>
+
+                                    <div className="flex-shrink-0 pt-2.5 w-full">
+                                        <Link
+                                            href='/earn/pool'
+                                            className={cn(buttonVariants({variant: 'outline'}),"w-full text-foreground bg-backgroundSecondary hover:text-primary hover:bg-secondary border-primary rounded-full")}
+                                        >
+                                            Go to Pool
+                                        </Link>
+                                    </div>
                                 </div>
                             </CardContent>
                         </Card>
@@ -201,10 +221,10 @@ export default function StrategyCards(){
                         e.preventDefault();
                         if (currentPage > 1) paginate(currentPage - 1);
                     }}
-                    className="bg-[#F3EDF7] text-[#9B7EBD] hover:bg-[#CCBEDD] hover:text-[#9B7EBD]" 
+                    className="text-foreground" 
                     />
                 </PaginationItem>
-                <div className="flex">
+                <div className="flex gap-2">
                     {[...Array(totalPages)].map((_, index) => (
                         <PaginationItem key={index}>
                         <PaginationLink 
@@ -214,6 +234,7 @@ export default function StrategyCards(){
                             e.preventDefault();
                             paginate(index + 1);
                             }}
+                            className="rounded-full"
                         >
                             {index + 1}
                         </PaginationLink>
@@ -227,7 +248,7 @@ export default function StrategyCards(){
                         e.preventDefault();
                         if (currentPage < totalPages) paginate(currentPage + 1);
                     }}
-                     
+                    className="text-foreground" 
                     />
                 </PaginationItem>
                 </PaginationContent>
